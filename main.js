@@ -5,7 +5,7 @@ const path = require('path');
 const { app, BrowserWindow, Menu, ipcMain } = electron;
 
 // set ENV
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'dev';
 
 let mainWindow;
 let addWindow;
@@ -59,7 +59,7 @@ const mainMenuTemplate = [{
     label: 'File',
     submenu: [{
         label: 'Add Item',
-        accelerator:isMac() ? 'Command+N' : 'Ctrl+N',
+        accelerator: isMac() ? 'Command+N' : 'Ctrl+N',
         click() {
             createAddWindow();
         }
@@ -87,15 +87,15 @@ if (process.env.NODE_ENV != 'production') {
     mainMenuTemplate.push({
         label: 'Developer Tools',
         submenu: [{
-                label: 'Toggle DevTools',
-                accelerator: isMac() ? 'Command+I' : 'Ctrl+I',
-                click(item, focusedWindow) {
-                    focusedWindow.toggleDevTools();
-                }
-            },
-            {
-                role: 'reload'
+            label: 'Toggle DevTools',
+            accelerator: isMac() ? 'Command+I' : 'Ctrl+I',
+            click(item, focusedWindow) {
+                focusedWindow.toggleDevTools();
             }
+        },
+        {
+            role: 'reload'
+        }
 
         ]
     })

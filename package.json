@@ -12,10 +12,9 @@
   "author": "xdavidel",
   "license": "ISC",
   "dependencies": {
-    "electron": "^1.7.6",
-    "npm": "^5.4.2"
+    "electron": "^2.0.3"
   },
   "devDependencies": {
-    "electron-packager": "^9.0.1"
+    "electron-packager": "^12.1.0"
   }
 }
