@@ -12,7 +12,11 @@ let addWindow;
 
 
 app.on('ready', () => {
-    mainWindow = new BrowserWindow({});
+    mainWindow = new BrowserWindow({
+        webPreferences: {
+            nodeIntegration: true
+         }
+    });
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'main-window', 'main-window.html'),
         protocol: 'file',
@@ -34,7 +38,11 @@ function createAddWindow() {
     addWindow = new BrowserWindow({
         width: 400,
         height: 300,
-        title: 'Add Shopping Items'
+        title: 'Add Shopping Items',
+
+        webPreferences: {
+           nodeIntegration: true
+        }
     });
     addWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'add-window', 'add-window.html'),
